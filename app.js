@@ -3,6 +3,10 @@ var routes = require('./routes');
 // var app = module.exports = express.createServer();
 var app = express();
 
+var http = require('http').Server(app);
+
+var io = require('socket.io')(http);
+
 // var io	= require('socket.io').listen(app, { log: false });
 // DataSift = require('datasift');
 // ds = require('./ds_streams.js');
@@ -30,6 +34,15 @@ app.configure('production', function() {
 // // Routes
 require('./routes')(app);
 
-app.listen(8080);
+// app.listen(8080);
 // console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
-console.log("Express server listening");
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+});
+
+
