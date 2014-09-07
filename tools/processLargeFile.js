@@ -9,7 +9,7 @@ var max = 0;
 var min = 9999;
 var lineCount = 0;
 
-s = fs.createReadStream('./samplecsv.csv')
+s = fs.createReadStream('./largefile.txt')
     .pipe(es.split())
     .pipe(es.mapSync(function(line){
 
