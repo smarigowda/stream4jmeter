@@ -1,4 +1,4 @@
 stream4jmeter
 =============
 
-A tool to stream JMeter report and generate graphs using d3js
+Develop a tool to stream JMeter report and generate graphs using d3js
